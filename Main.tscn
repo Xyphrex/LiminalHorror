@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5jbks71304sx"]
+
+[ext_resource type="Script" path="res://CharacterController.gd" id="1_xn5vg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lymdj"]
+
+[sub_resource type="Sky" id="Sky_mfl2o"]
+sky_material = SubResource("ProceduralSkyMaterial_lymdj")
+
+[sub_resource type="Environment" id="Environment_3i42j"]
+background_mode = 2
+sky = SubResource("Sky_mfl2o")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kc470"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d0qtg"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6go6y"]
+height = 1.8
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2n3b4"]
+points = PackedVector3Array(0.1072, -0.455979, -0.482912, 0.080844, 0.485261, 0.485303, -0.0808577, 0.485259, 0.485301, 0.0817241, -0.790367, 0.299653, -0.485302, -0.485259, -0.0808519, -0.188982, 0.728928, -0.324002, 0.485314, 0.485116, -0.0808562, 0.485314, -0.485116, 0.0808562, -0.451879, 0.398755, 0.212588, -0.266256, -0.532756, 0.399473, 0.0823501, 0.878832, 0.109746, -0.082362, -0.878809, -0.10984, 0.188677, 0.566164, -0.431337, -0.291355, 0.476801, -0.397306, 0.371941, -0.557893, -0.292188, 0.187592, -0.48247, 0.45559, 0.397316, 0.476662, 0.291368, -0.266222, -0.532687, -0.399516, -0.45813, 0.566046, -0.107812, -0.271035, 0.786464, 0.162562, 0.243737, -0.812681, -0.135383, -0.403704, -0.645856, 0.161348, 0.299718, 0.790313, -0.0817267, -0.0808577, 0.485259, -0.485301, 0.373978, 0.480622, -0.320523, 0.371977, -0.557947, 0.292123, 0.108293, -0.70461, -0.379343, -0.0808577, -0.485259, 0.485301, -0.291398, 0.476871, 0.397272, 0.108553, 0.760592, 0.325877, -0.27049, -0.757752, -0.216503, -0.451843, -0.398723, -0.212665)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gm8ps"]
+radius = 0.4
+height = 0.8
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eqaqq"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b8nel"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3i42j")
+
+[node name="Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.190192, 0.981747, 0, -0.981747, 0.190192, 0, 5.24019, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_kc470")
+
+[node name="floor_staticbody" type="StaticBody3D" parent="Floor"]
+
+[node name="floor_collider" type="CollisionShape3D" parent="Floor/floor_staticbody"]
+shape = SubResource("ConcavePolygonShape3D_d0qtg")
+
+[node name="Character" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604595, 0)
+script = ExtResource("1_xn5vg")
+
+[node name="character_shape" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19581, 0)
+mesh = SubResource("CapsuleMesh_6go6y")
+
+[node name="character_collider" type="CollisionShape3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19581, 0)
+shape = SubResource("ConvexPolygonShape3D_2n3b4")
+
+[node name="character_head" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.472, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_gm8ps")
+
+[node name="character_head_eyes" type="Camera3D" parent="Character/character_head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0793946, 0.0786958)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.820362, 0.571845, 0, -0.571845, 0.820362, 0, 0, 0, 1, 0.0914013, 2.03306, -2.82846)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_eqaqq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_b8nel")
