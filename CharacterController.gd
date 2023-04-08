@@ -14,7 +14,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _process(delta):
-	$character_head/character_head_eyes/GUI/FPS_Counter.text = "FPS: " + str(1/delta)
+	$character_head/character_head_eyes/GUI/FPS_Counter.text = "FPS: " + str(round(1/delta))
 
 func _physics_process(delta):
 	# Add the gravity.
