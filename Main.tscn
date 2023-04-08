@@ -55,6 +55,7 @@ script = ExtResource("1_xn5vg")
 
 [node name="character_shape" type="MeshInstance3D" parent="Character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19581, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_6go6y")
 
 [node name="character_collider" type="CollisionShape3D" parent="Character"]

@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var Head = $character_head
+@export var sensitivity = 0.2
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -36,7 +37,6 @@ func _physics_process(delta):
 func _input(event):
 #Needs mouse controls to be finalised
 	if event is InputEventMouseMotion:
-		var xrotation = Head.rotation.x - event.relative.y / 600
-		rotation.y -= event.relative.x / 600
-		xrotation = clamp(xrotation, -1, 0.25)
-		rotation.x = xrotation
+		rotate_y(deg_to_rad(-event.relative.x*sensitivity))
+		Head.rotate_x(deg_to_rad(-event.relative.y*sensitivity))
+		Head.rotation.x = clamp(Head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
