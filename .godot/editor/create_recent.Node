@@ -1,0 +1,12 @@
+VoxelGI
+MeshInstance3D
+SpotLight3D
+DirectionalLight3D
+OmniLight3D
+Label
+CanvasLayer
+CollisionPolygon3D
+RigidBody3D
+WorldEnvironment
+Camera3D
+CharacterBody3D

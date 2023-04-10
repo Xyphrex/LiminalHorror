@@ -1,0 +1,6 @@
+2a60927148abd1d33b818b535e306557
+::res://::1681014702
+CharacterController.gd::GDScript::-1::1680960722::0::1::::<>CharacterBody3D<>::
+icon.svg::CompressedTexture2D::2028923831088236336::1680875635::1680875639::1::::<><>::
+Main.tscn::PackedScene::4510744963626225079::1680962979::0::1::::<><>::res://CharacterController.gd
+Main.VoxelGI_data.res::VoxelGIData::2103825935618930883::1680962069::0::1::::<><>::
