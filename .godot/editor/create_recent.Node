@@ -1,3 +1,5 @@
+Node3D
+CharacterBody3D
 VoxelGI
 MeshInstance3D
 SpotLight3D
@@ -9,4 +11,3 @@ CollisionPolygon3D
 RigidBody3D
 WorldEnvironment
 Camera3D
-CharacterBody3D
