@@ -1,14 +1,15 @@
 extends CharacterBody3D
 
 
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 7
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var Head = $character_head
 @export var sensitivity = 0.2
-@export var sprint = 10
+@export var sprint = 0
 @export var SPEED = 5.0
+@export var vel_smooth = 0.4
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -29,19 +30,14 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		if Input.is_key_pressed(KEY_SHIFT):
-			velocity.x = direction.x * (SPEED + sprint)
-			velocity.z = direction.z * (SPEED + sprint)
-		else:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
-
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	sprint = 0
+	if Input.is_key_pressed(KEY_SHIFT):
+		sprint = 10
+	velocity.x = lerp(velocity.x, direction.x * (SPEED + sprint), vel_smooth)
+	velocity.z = lerp(velocity.z, direction.z * (SPEED + sprint), vel_smooth)
 
 	move_and_slide()
+	
 	
 func _input(event):
 #Needs mouse controls to be finalised

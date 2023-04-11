@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bscipbeqtx87f"]
+
+[ext_resource type="Script" path="res://Menus/menu.gd" id="1_gnccm"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gnccm")
+
+[node name="Paused" type="Label" parent="."]
+offset_left = 968.0
+offset_top = 260.0
+offset_right = 1025.0
+offset_bottom = 312.0
+text = "Paused
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="resume_button" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 730.0
+offset_top = 314.0
+offset_right = 1252.0
+offset_bottom = 428.0
+text = "Resume"
+
+[node name="main_menu_button" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 688.0
+offset_right = 1238.0
+offset_bottom = 796.0
+text = "Main Menu"
+
+[connection signal="pressed" from="Buttons/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Buttons/main_menu_button" to="." method="_on_main_button_pressed"]
