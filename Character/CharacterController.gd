@@ -2,13 +2,13 @@ extends CharacterBody3D
 
 
 
-
+var sprint = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var Head = $character_head
 @export var sensitivity = 0.2
-@export var sprint = 0
+@export var sprint_speed = 5
 @export var SPEED = 5.0
-@export var vel_smooth = 0.4
+@export var vel_smooth = 0.3
 @export var gravity = 15
 @export var jump = 7
 
@@ -33,7 +33,7 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	sprint = 0
 	if Input.is_key_pressed(KEY_SHIFT):
-		sprint = 10
+		sprint = sprint_speed
 	velocity.x = lerp(velocity.x, direction.x * (SPEED + sprint), vel_smooth)
 	velocity.z = lerp(velocity.z, direction.z * (SPEED + sprint), vel_smooth)
 

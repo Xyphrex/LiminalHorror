@@ -1,4 +1,7 @@
+res://default_bus_layout.tres
+res://Character/CharacterController.gd
 res://Main.tscn
 res://Menus/menu.tscn
 res://Menus/main_menu.tscn
 res://Player.tscn
+res://RandomScripts/Light.gd

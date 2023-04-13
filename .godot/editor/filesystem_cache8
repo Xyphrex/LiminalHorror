@@ -1,15 +1,17 @@
 2a60927148abd1d33b818b535e306557
-::res://::1681274458
+::res://::1681398449
+dark-empty-void-53012.mp3::AudioStreamMP3::246068120438579277::1681388758::1681398452::1::::<><>::
+Dreamcore playlist! [ read desc ].mp3::AudioStreamMP3::1639004313038465359::1681394648::1681398452::1::::<><>::
 icon.svg::CompressedTexture2D::2028923831088236336::1681220384::1681220384::1::::<><>::
 Main.gd::GDScript::-1::1681220384::0::1::::<>Node3D<>::
-Main.tscn::PackedScene::7553452293134800396::1681221907::0::1::::<><>::res://Main.gd<>uid://bd4q1xmlcttiq
+Main.tscn::PackedScene::7553452293134800396::1681397516::0::1::::<><>::res://Main.gd<>uid://bd4q1xmlcttiq
 Main.VoxelGI_data.res::VoxelGIData::2103825935618930883::1681220384::0::1::::<><>::
-Player.tscn::PackedScene::2657873299078660100::1681221820::0::1::::<><>::res://Character/CharacterController.gd
-::res://Character/::1681220867
-CharacterController.gd::GDScript::-1::1681220867::0::1::::<>CharacterBody3D<>::
-::res://Menus/::1681221820
+player.tscn::PackedScene::2657873299078660100::1681397516::0::1::::<><>::res://Character/CharacterController.gd
+::res://Character/::1681397516
+CharacterController.gd::GDScript::-1::1681397516::0::1::::<>CharacterBody3D<>::
+::res://Menus/::1681395572
 main_menu.gd::GDScript::-1::1681220384::0::1::::<>Node2D<>::
-main_menu.tscn::PackedScene::378316560328069869::1681221820::0::1::::<><>::res://Menus/main_menu.gd
+main_menu.tscn::PackedScene::378316560328069869::1681395572::0::1::::<><>::res://Menus/main_menu.gd
 menu.gd::GDScript::-1::1681220384::0::1::::<>CanvasLayer<>::
 menu.gdshader::Shader::-1::1681220384::0::1::::<><>::
-menu.tscn::PackedScene::3654461206992376881::1681221820::0::1::::<><>::res://Menus/menu.gd
+menu.tscn::PackedScene::3654461206992376881::1681395572::0::1::::<><>::res://Menus/menu.gd
