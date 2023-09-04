@@ -46,3 +46,5 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x*sensitivity))
 		Head.rotate_x(deg_to_rad(-event.relative.y*sensitivity))
 		Head.rotation.x = clamp(Head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+

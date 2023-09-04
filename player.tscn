@@ -16,24 +16,25 @@ height = 0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604595, 0)
 script = ExtResource("1_66vye")
 sensitivity = 0.1
+gravity = 20
 
 [node name="character_shape" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34098, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_hk8cq")
 
 [node name="character_collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34098, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("ConvexPolygonShape3D_esl10")
 
 [node name="character_head" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.472, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89667, 0)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_aigsl")
 
 [node name="character_head_eyes" type="Camera3D" parent="character_head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0793946, 0.282763)
-fov = 60.0
+fov = 65.0
 
 [node name="GUI" type="CanvasLayer" parent="character_head/character_head_eyes"]
 
