@@ -11,24 +11,29 @@ var sprint = 0
 @export var vel_smooth = 0.3
 @export var gravity = 15
 @export var jump = 7
-
+#@onready var Level1Root = get_tree().get_node("/Level1/World/.")
+var single_player = false
 
 func _enter_tree():
+	if str(name) == "Character":
+		single_player = true
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
-	if not is_multiplayer_authority():
-		return
+	if not single_player:
+		if not is_multiplayer_authority():
+			return
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$character_head/character_head_eyes.current = true
+#	$Camera3D.current = true
 	
 func _process(delta):
 	$character_head/character_head_eyes/GUI/FPS_Counter.text = "FPS: " + str(round(1/delta))
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_multiplayer_authority():
-		return
+	if not single_player:
+		if not is_multiplayer_authority():
+			return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -48,14 +53,13 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	
 func _input(event):
-	if not is_multiplayer_authority():
-		return
+#	if not single_player:
+#		if not is_multiplayer_authority():
+#			return
 #Needs mouse controls to be finalised
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x*sensitivity))
 		Head.rotate_x(deg_to_rad(-event.relative.y*sensitivity))
 		Head.rotation.x = clamp(Head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
-
+		$character_head/character_head_eyes/GUI/Label.text = str(rad_to_deg(clamp(Head.rotation.x, deg_to_rad(-90), deg_to_rad(90))))

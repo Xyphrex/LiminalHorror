@@ -5,12 +5,10 @@ const PORT = 9999
 const Player = preload("res://Player.tscn")
 var enet_peer = ENetMultiplayerPeer.new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -57,3 +55,10 @@ func upnp_setup():
 	assert(map_result  == UPNP.UPNP_RESULT_SUCCESS, "UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success! Join Address: %s", upnp.query_external_address())
+
+
+func _on_single_player_pressed():
+	$Multiplayer_Menu.hide()
+	var player = Player.instantiate()
+	add_child(player)
+	

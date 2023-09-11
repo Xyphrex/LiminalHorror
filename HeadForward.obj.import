@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bqlg1bsyf7lly"
+path="res://.godot/imported/HeadForward.obj-2b5874205df3b7a563f255bc8d02062d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/HeadForward.obj-2b5874205df3b7a563f255bc8d02062d.mesh"]
+
+source_file="res://HeadForward.obj"
+dest_files=["res://.godot/imported/HeadForward.obj-2b5874205df3b7a563f255bc8d02062d.mesh", "res://.godot/imported/HeadForward.obj-2b5874205df3b7a563f255bc8d02062d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

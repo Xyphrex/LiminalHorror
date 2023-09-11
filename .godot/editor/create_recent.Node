@@ -1,7 +1,10 @@
+Label
+Camera3D
+Button
+CheckButton
 MultiplayerSynchronizer
 MultiplayerSpawner
 LineEdit
-Button
 ColorRect
 VBoxContainer
 CanvasLayer
@@ -22,12 +25,8 @@ PathFollow3D
 Path3D
 CharacterBody3D
 MeshInstance2D
-Label
 PanelContainer
 Control
 Node
 Node3D
 VoxelGI
-DirectionalLight3D
-RigidBody3D
-WorldEnvironment
