@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd4q1xmlcttiq"]
+[gd_scene load_steps=6 format=3 uid="uid://bd4q1xmlcttiq"]
 
 [ext_resource type="Script" path="res://Character/CharacterController.gd" id="1_66vye"]
 
@@ -12,10 +12,23 @@ points = PackedVector3Array(0.485063, 0.338297, 0.078818, -0.485063, -0.338297, 
 radius = 0.4
 height = 0.8
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g5jw4"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/2/path = NodePath("character_head/character_head_eyes:rotation")
+properties/2/spawn = true
+properties/2/sync = true
+
 [node name="Character" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604595, 0)
+collision_layer = 2
 script = ExtResource("1_66vye")
 sensitivity = 0.1
+vel_smooth = 0.2
 gravity = 20
 
 [node name="character_shape" type="MeshInstance3D" parent="."]
@@ -41,3 +54,6 @@ fov = 65.0
 [node name="FPS_Counter" type="Label" parent="character_head/character_head_eyes/GUI"]
 offset_right = 159.0
 offset_bottom = 55.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_g5jw4")

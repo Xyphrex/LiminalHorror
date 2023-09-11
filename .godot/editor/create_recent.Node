@@ -1,8 +1,14 @@
+MultiplayerSynchronizer
+MultiplayerSpawner
+LineEdit
+Button
+ColorRect
+VBoxContainer
 CanvasLayer
+AudioStreamPlayer3D
 Container
 SpotLight3D
 MeshInstance3D
-ColorRect
 SubViewport
 TextureRect
 OmniLight3D
@@ -14,10 +20,8 @@ CSGSphere3D
 AudioStreamPlayer
 PathFollow3D
 Path3D
-AudioStreamPlayer3D
 CharacterBody3D
 MeshInstance2D
-Button
 Label
 PanelContainer
 Control
@@ -27,4 +31,3 @@ VoxelGI
 DirectionalLight3D
 RigidBody3D
 WorldEnvironment
-Camera3D

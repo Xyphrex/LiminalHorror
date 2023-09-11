@@ -1,5 +1,8 @@
 res://default_bus_layout.tres
-res://Main.tscn
+res://Level1.tscn
 res://Menus/menu.tscn
 res://Menus/main_menu.tscn
 res://Player.tscn
+res://Menus/main_menu.gd
+res://Main.gd
+res://Character/CharacterController.gd

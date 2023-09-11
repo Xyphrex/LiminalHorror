@@ -12,14 +12,23 @@ var sprint = 0
 @export var gravity = 15
 @export var jump = 7
 
+
+func _enter_tree():
+	set_multiplayer_authority(str(name).to_int())
+
 func _ready():
+	if not is_multiplayer_authority():
+		return
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$character_head/character_head_eyes.current = true
 	
 func _process(delta):
 	$character_head/character_head_eyes/GUI/FPS_Counter.text = "FPS: " + str(round(1/delta))
 
 func _physics_process(delta):
 	# Add the gravity.
+	if not is_multiplayer_authority():
+		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -41,6 +50,8 @@ func _physics_process(delta):
 	
 	
 func _input(event):
+	if not is_multiplayer_authority():
+		return
 #Needs mouse controls to be finalised
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x*sensitivity))

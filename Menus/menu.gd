@@ -17,7 +17,7 @@ func _on_resume_button_pressed():
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	queue_free()
-
+	
 func _on_main_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
